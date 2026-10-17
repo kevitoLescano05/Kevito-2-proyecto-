@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "DailyMeal": {
+      "title": "Daily Meal",
+      "description": "Registro de comida individual con macronutrientes",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "dateStr": { "type": "string" },
+        "carbs": { "type": "number" },
+        "animalProtein": { "type": "number" },
+        "plantProtein": { "type": "number" },
+        "fat": { "type": "number" },
+        "calories": { "type": "number" },
+        "glycemicIndex": { "type": "string" },
+        "glycemicLoad": { "type": "number" },
+        "absorptionSpeed": { "type": "string" },
+        "recommendedBolus": { "type": "number" },
+        "isArchived": { "type": "boolean" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "carbs", "calories"]
+    },
+    "BolusEntry": {
+      "title": "Bolus Entry",
+      "description": "Registro de dosis de insulina Novorapid",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "units": { "type": "number" },
+        "type": { "type": "string" },
+        "mealCarbs": { "type": "number" },
+        "currentGlucose": { "type": "number" },
+        "targetGlucose": { "type": "number" },
+        "carbBolus": { "type": "number" },
+        "correctionBolus": { "type": "number" },
+        "iobDeducted": { "type": "number" },
+        "activeDurationHours": { "type": "number" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "units"]
+    },
+    "UserProfileSettings": {
+      "title": "User Profile Settings",
+      "description": "Configuración médica del paciente",
+      "properties": {
+        "targetGlucose": { "type": "number" },
+        "isf": { "type": "number" },
+        "icr": { "type": "number" },
+        "lantusTotalDaily": { "type": "number" },
+        "lantusMorningDose": { "type": "number" },
+        "lantusNightDose": { "type": "number" },
+        "dayType": { "type": "string" },
+        "weightKg": { "type": "number" },
+        "kcalPerKg": { "type": "number" },
+        "weekdayCalorieGoal": { "type": "number" },
+        "weekendCalorieGoal": { "type": "number" },
+        "maxAnimalProtein": { "type": "number" },
+        "minPlantProtein": { "type": "number" },
+        "maxPlantProtein": { "type": "number" },
+        "activeInsulinTimeHours": { "type": "number" },
+        "glucoseSensor": { "type": "string" },
+        "infusionPort": { "type": "string" }
+      },
+      "required": ["targetGlucose", "isf", "icr"]
+    },
+    "FavoriteFood": {
+      "title": "Favorite Food",
+      "description": "Alimento favorito personalizado guardado de forma permanente",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "portionName": { "type": "string" },
+        "gramsPerPortion": { "type": "number" },
+        "carbsGrams": { "type": "number" },
+        "animalProteinGrams": { "type": "number" },
+        "plantProteinGrams": { "type": "number" },
+        "fatGrams": { "type": "number" },
+        "calories": { "type": "number" },
+        "gi": { "type": "string" },
+        "cg": { "type": "number" },
+        "absorption": { "type": "string" },
+        "isCommercial": { "type": "boolean" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "name", "portionName", "carbsGrams"]
+    },
+    "CommunityReview": {
+      "title": "Community Review",
+      "description": "Reseña pública, reporte de falla o sugerencia en la caja de comentarios de la comunidad",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "authorName": { "type": "string", "maxLength": 80 },
+        "authorId": { "type": "string", "maxLength": 128 },
+        "countryCode": { "type": "string", "maxLength": 12 },
+        "treatmentBadge": { "type": "string", "maxLength": 80 },
+        "rating": { "type": "number" },
+        "category": { "type": "string", "enum": ["review", "bug_report", "idea", "question"] },
+        "title": { "type": "string", "maxLength": 120 },
+        "text": { "type": "string", "maxLength": 1500 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "likesCount": { "type": "number" },
+        "status": { "type": "string", "enum": ["open", "resolved"] }
+      },
+      "required": ["id", "authorName", "authorId", "countryCode", "rating", "category", "title", "text", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/daily_meals/{mealId}": {
+      "schema": "DailyMeal",
+      "description": "Colección de comidas registradas"
+    },
+    "/bolus_history/{bolusId}": {
+      "schema": "BolusEntry",
+      "description": "Historial de inyecciones de bolus"
+    },
+    "/settings/user_profile": {
+      "schema": "UserProfileSettings",
+      "description": "Configuración de parámetros del usuario"
+    },
+    "/favorite_foods/{foodId}": {
+      "schema": "FavoriteFood",
+      "description": "Colección de alimentos favoritos persistentes"
+    },
+    "/community_reviews/{reviewId}": {
+      "schema": "CommunityReview",
+      "description": "Caja pública de reseñas, reportes de errores e interacción entre usuarios"
+    }
+  }
+}

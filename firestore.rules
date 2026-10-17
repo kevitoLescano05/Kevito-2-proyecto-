@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Reglas de seguridad estrictas: cada usuario autenticado solo puede leer y escribir sus propios datos
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Colección para uso en modo invitado (permite persistencia básica si no ha iniciado sesión)
+    match /guests/{guestId}/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Colección pública de reseñas, comentarios y reportes de fallas de la comunidad
+    match /community_reviews/{reviewId} {
+      allow read: if true;
+      allow create, update: if request.resource.data.title is string
+        && request.resource.data.title.size() <= 150
+        && request.resource.data.text is string
+        && request.resource.data.text.size() <= 2000
+        && request.resource.data.authorName is string
+        && request.resource.data.authorName.size() <= 100;
+      allow delete: if (request.auth != null && (
+        request.auth.uid == resource.data.authorId ||
+        request.auth.token.email == "pirilescano@gmail.com"
+      )) || (resource.data.reportsCount is int && resource.data.reportsCount >= 2);
+    }
+  }
+}

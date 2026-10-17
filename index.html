@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#020617" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/icon-192.svg" />
+    <title>Calculadora de Dosis de Insulina</title>
+    <meta name="description" content="Calculadora de bolus de insulina con FSI, ratio ICR, descuento de insulina activa (IOB), análisis IA de alimentos y control de macronutrientes para diabetes tipo 1." />
+    <meta property="og:title" content="Calculadora de Dosis de Insulina" />
+    <meta property="og:description" content="Calculadora de bolus de insulina con FSI, ratio ICR, descuento de insulina activa (IOB), análisis IA de alimentos y control de macronutrientes para diabetes tipo 1." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 touch-manipulation overscroll-none select-none">
+    <div id="google_translate_element" style="display:none;position:absolute;width:0;height:0;overflow:hidden;"></div>
+    <div id="root"></div>
+    <script>
+      (function () {
+        try {
+          var savedLang = localStorage.getItem('insu_calc_app_language');
+          var targetLang = savedLang;
+          if (!targetLang && navigator) {
+            var raw = (navigator.languages && navigator.languages[0]) || navigator.language || 'es';
+            if (/^zh[-_](TW|HK|MO|Hant)/i.test(raw)) {
+              targetLang = 'zh-TW';
+            } else if (/^zh/i.test(raw)) {
+              targetLang = 'zh-CN';
+            } else {
+              targetLang = raw.split(/[-_]/)[0].toLowerCase();
+            }
+          }
+          if (!targetLang || targetLang === 'es') {
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.documentElement.lang = 'es';
+          } else {
+            document.cookie = 'googtrans=/es/' + targetLang + '; path=/; SameSite=Lax';
+            document.documentElement.lang = targetLang;
+          }
+        } catch (e) {}
+      })();
+
+      function googleTranslateElementInit() {
+        try {
+          if (window.google && window.google.translate) {
+            new window.google.translate.TranslateElement(
+              {
+                pageLanguage: 'es',
+                autoDisplay: false
+              },
+              'google_translate_element'
+            );
+          }
+        } catch (e) {}
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

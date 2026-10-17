@@ -1,0 +1,6 @@
+{
+  "name": "Calculadora de Dosis de Insulina",
+  "description": "Calculadora de bolus de insulina con FSI, ratio ICR, descuento de insulina activa (IOB), análisis IA de alimentos y control de macronutrientes para diabetes tipo 1.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

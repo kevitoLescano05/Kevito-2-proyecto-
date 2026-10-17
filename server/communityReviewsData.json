@@ -1,0 +1,91 @@
+{
+  "deletedIds": [],
+  "reviews": [
+    {
+      "id": "rev-real-dosis-fijas-1",
+      "authorName": "Usuario Invitado",
+      "authorId": "guest-real-1",
+      "countryCode": "AR",
+      "treatmentBadge": "Sensor NFC + Pluma Manual",
+      "rating": 0,
+      "category": "review",
+      "title": "",
+      "text": "Falta que se pueda incluir la opción de dosis fijas. Yo no uso conteo de carbohidratos, uso una tabla que me dió mi médico para aplicarme insulina",
+      "createdAt": "2026-10-11T04:48:00.000Z",
+      "likesCount": 0,
+      "likedBy": [],
+      "replies": [],
+      "status": "open",
+      "reportedBy": [],
+      "reportsCount": 0,
+      "reportReasons": [],
+      "autoHidden": false
+    },
+    {
+      "id": "seed-rev-2",
+      "authorName": "Carlos R.",
+      "authorId": "seed-user-3",
+      "countryCode": "ES",
+      "treatmentBadge": "Sensor NFC + Pluma",
+      "rating": 5,
+      "category": "idea",
+      "title": "Excelente el cambio de país para cuando viajamos",
+      "text": "Viajé de Madrid a Buenos Aires y poder cambiar el catálogo de alimentos entre España (BEDCA / Mercadona) y Argentina (ARGENFOODS) con un botón es genial.",
+      "stickerId": "sticker_t1d_strength",
+      "createdAt": "2026-10-09T21:00:00.000Z",
+      "likesCount": 9,
+      "likedBy": ["seed-3"],
+      "replies": [],
+      "status": "open",
+      "reportedBy": [],
+      "reportsCount": 0
+    },
+    {
+      "id": "seed-rev-3",
+      "authorName": "Sofía L.",
+      "authorId": "seed-user-4",
+      "countryCode": "AR",
+      "treatmentBadge": "Sensor NFC + Pluma Manual",
+      "rating": 3,
+      "category": "review",
+      "title": "Muy completa la calculadora, pero el buscador a veces tarda un poco",
+      "text": "Le pongo 3 estrellas porque la parte de calcular la insulina y los minutos de espera según dónde te pinches está buenísima, pero cuando buscás algunas marcas de supermercado o analizás una foto con poca señal de internet el buscador tarda varios segundos en cargar. Si agilizan eso queda de 10.",
+      "createdAt": "2026-10-08T21:00:00.000Z",
+      "likesCount": 6,
+      "likedBy": ["seed-4", "seed-5"],
+      "replies": [],
+      "status": "open",
+      "reportedBy": [],
+      "reportsCount": 0
+    },
+    {
+      "id": "seed-rev-1",
+      "authorName": "Martín G.",
+      "authorId": "seed-user-1",
+      "countryCode": "AR",
+      "treatmentBadge": "FreeStyle Libre + i-Port",
+      "rating": 5,
+      "category": "review",
+      "title": "¡Salvavidas para las comidas con grasa y el recordatorio de i-Port!",
+      "text": "Me sirve muchísimo cómo divide el bolo cuando como pizza o empanadas y te avisa cuándo toca la segunda dosis. Además tener las marcas argentinas exactas ahorra muchísimo tiempo.",
+      "stickerId": "sticker_pizza_victory",
+      "createdAt": "2026-10-07T21:00:00.000Z",
+      "likesCount": 14,
+      "likedBy": ["seed-1", "seed-2"],
+      "replies": [
+        {
+          "id": "seed-rep-1",
+          "authorName": "Lucía M.",
+          "authorId": "seed-user-2",
+          "countryCode": "UY",
+          "text": "¡Tal cual! El chequeo de seguridad antes de la 2da dosis me evitó más de un bajón a la noche.",
+          "stickerId": "sticker_in_range",
+          "createdAt": "2026-10-08T18:00:00.000Z"
+        }
+      ],
+      "status": "open",
+      "reportedBy": [],
+      "reportsCount": 0
+    }
+  ]
+}
